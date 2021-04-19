@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import HireShortList from '../HireShortList/HireShortList';
 
-const HireByDate = ({ bookings }) => {
-    console.log(bookings);
+const HireByDate = () => {
+    const [bookings, setBookings] = useState([])
+    useEffect(() => {
+        fetch('http://localhost:5000/bookings')
+            .then(res => res.json())
+            .then(data => setBookings(data))
+    }, [])
     return (
         <div>
             <h2 className="text-brand text-center">Bookings</h2>

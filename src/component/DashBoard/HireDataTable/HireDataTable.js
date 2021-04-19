@@ -13,9 +13,6 @@ const HireDataTable = () => {
     }, [])
     return (
         <div className="container-fluid row">
-            <div className="col-md-2 pl-0">
-            <Sidebar />
-            </div>
             <div className="col-md-10">
                 <table className="table table-borderless">
                     <thead>

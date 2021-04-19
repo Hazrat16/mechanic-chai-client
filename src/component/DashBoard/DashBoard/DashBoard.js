@@ -2,9 +2,12 @@ import React, { useEffect, useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import { useForm } from 'react-hook-form';
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import HireByDate from '../HireByDate/HireByDate';
 import Sidebar from './../Sidebar/Sidebar';
+import ProcessPayment from './../ProcessPayment/ProcessPayment';
+import { UserContext } from '../../../App';
+import { useContext } from 'react';
 
 const containerStyle = {
     backgroundColor: '#F4FDFB',
@@ -15,13 +18,16 @@ const containerStyle = {
 const DashBoard = () => {
     // const {id} = useParams()
     // console.log(id);
+    let history = useHistory();
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext)
     const { register, handleSubmit, watch, errors } = useForm();
     const [selectedDate, setSelectedDate] = useState(new Date());
-    const [bookings, setBookings] = useState([]);
+    const [bookings, setBookings] = useState(null);
     const handleDateChange = date => {
         console.log(date);
         setSelectedDate(date);
     }
+    const [bookData, setBookData] = useState(null);
 
     useEffect(() => {
         fetch('http://localhost:5000/bookings')
@@ -42,16 +48,25 @@ const DashBoard = () => {
     //         })
 
     // }, [selectedDate])
-
     const onSubmit = data => {
+        setBookData(data);
+    };
+
+    const handlePaymentSuccess = paymentId => {
         const bookingData = {
-            name: data.name,
-            email: data.email,
-            address:data.address,
-            phone:data.phone,
-            date: data.date,
+            name: bookData.name,
+            email: bookData.email,
+            address: bookData.address,
+            phone: bookData.phone,
+            date: bookData.date,
+            bookingsData: bookData,
+            ...loggedInUser,
+            paymentId
+
         };
         // const url = `http://localhost:5000/bookings`;
+
+
 
         fetch('http://localhost:5000/bookings', {
             method: 'POST',
@@ -60,8 +75,16 @@ const DashBoard = () => {
             },
             body: JSON.stringify(bookingData)
         })
-            .then(res => console.log('server side response', res))
-    };
+            .then(res =>res.json())
+            .then(data => {
+                console.log('server side response', data)
+                if (data) {
+                    alert("Your order placed successfully")
+                }
+            })
+    }
+
+
     return (
         <section>
             <div style={containerStyle} className="container-fluid row ">
@@ -74,7 +97,7 @@ const DashBoard = () => {
                         value={new Date()}
                     /> */}
                     <div className="pl-0 pt-3">
-                        <div >
+                        <div style={{ display: bookData ? 'none' : 'block' }}>
                             <h1>Take Service from Here</h1>
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <input name="name" placeholder="Service" ref={register} className='w-75 mb-2' />
@@ -87,13 +110,20 @@ const DashBoard = () => {
                                 <br />
                                 <input name="date" placeholder="Date DD/MM/YYYY" ref={register} className='mb-2 w-75' />
                                 <br />
+                                {/* <button onClick={handleMakePayment}>Submit</button> */}
                                 <input type="submit" />
                             </form>
+                        </div>
+                        <div>
+                            <div style={{ display: !bookData ? 'none' : 'block' }} className="col-md-6">
+                                Pay for Orders
+                            <ProcessPayment handlePayment={handlePaymentSuccess} />
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div className="col-md-5">
-                    <HireByDate bookings={bookings} />
+                    <HireByDate bookings={bookData} key={bookData}/>
                 </div>
             </div>
         </section>
