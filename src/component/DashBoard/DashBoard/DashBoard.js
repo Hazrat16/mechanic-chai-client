@@ -31,13 +31,13 @@ const DashBoard = () => {
     const [bookData, setBookData] = useState(null);
 
     useEffect(() => {
-        fetch('http://localhost:5000/bookings')
+        fetch('https://protected-inlet-61515.herokuapp.com/bookings')
             .then(res => res.json())
             .then(data => setBookings(data))
     }, [])
 
     // useEffect(() => {
-    //     fetch(`http://localhost:5000/service/${id}`, {
+    //     fetch(`https://protected-inlet-61515.herokuapp.com/service/${id}`, {
     //         method: 'POST',
     //         headers: { 'Content-type': 'application/json' },
     //         body: JSON.stringify({ date: selectedDate })
@@ -65,16 +65,16 @@ const DashBoard = () => {
             paymentId
 
         };
-        // const url = `http://localhost:5000/bookings`;
+        // const url = `https://protected-inlet-61515.herokuapp.com/bookings`;
 
 
 
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://protected-inlet-61515.herokuapp.com/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(bookingData)
+            body: JSON.stringify({bookingData,email:loggedInUser.email})
         })
             .then(res =>res.json())
             .then(data => {

@@ -13,7 +13,7 @@ const Contact = () => {
             user:loggedInUser.name,
             imageURL: loggedInUser.photoURL,
         };
-        const url = `http://localhost:5000/review`;
+        const url = `https://protected-inlet-61515.herokuapp.com/review`;
 
         fetch(url, {
             method: 'POST',

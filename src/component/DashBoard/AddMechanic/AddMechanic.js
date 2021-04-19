@@ -20,7 +20,7 @@ const AddMechanic = () => {
         formData.append('email', info.email);
         console.log(formData);
 
-        axios.post('http://localhost:5000/addADoctor', {
+        axios.post('https://protected-inlet-61515.herokuapp.com/addADoctor', {
             body: formData
         })
             .then(data => {

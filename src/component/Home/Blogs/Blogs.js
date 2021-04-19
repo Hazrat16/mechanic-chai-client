@@ -5,23 +5,23 @@ import './Blogs.css'
 
 const blogData = [
     {
-        title : 'Check at least a doctor in a year for your teeth',
+        title : 'Check at least a mechanic in a year for your car engine',
         description : 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea, placeat totam laborum maiores, esse assumenda porro error natus sit ipsam.        ',
-        author:'Dr. Cudi',
+        author:'Ali',
         authorImg : 'https://www.vhv.rs/dpng/d/414-4146986_man-animation-png-businessman-clipart-transparent-background-png.png',
         date : '23 April 2019'
     },
     {
-        title : 'Two time brush in a day can keep you healthy',
+        title : 'Check at least a mechanic in a year for your water line',
         description : 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea, placeat totam laborum maiores, esse assumenda porro error natus sit ipsam.        ',
-        author:'Dr. Sinthia',
+        author:'John',
         authorImg : 'https://www.vhv.rs/dpng/d/414-4146986_man-animation-png-businessman-clipart-transparent-background-png.png',
         date : '23 April 2019'
     },
     {
-        title : 'The tooth cancer is taking a challenge',
+        title : 'Check at least a mechanic in a year for your Electric Line',
         description : 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea, placeat totam laborum maiores, esse assumenda porro error natus sit ipsam.        ',
-        author:'Dr. Cudi',
+        author:'Cudi',
         authorImg : 'https://www.vhv.rs/dpng/d/414-4146986_man-animation-png-businessman-clipart-transparent-background-png.png',
         date : '23 April 2019'
     },

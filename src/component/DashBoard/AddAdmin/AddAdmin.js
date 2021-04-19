@@ -10,7 +10,7 @@ const AddAdmin = () => {
             name: data.name,
             email: data.email
         };
-        const url = `http://localhost:5000/admin`;
+        const url = `https://protected-inlet-61515.herokuapp.com/admin`;
 
         fetch(url, {
             method: 'POST',

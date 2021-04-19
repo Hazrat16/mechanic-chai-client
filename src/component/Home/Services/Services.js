@@ -8,7 +8,7 @@ const Services = () => {
     let history = useHistory();
 
     useEffect(() => {
-        fetch('http://localhost:5000/service')
+        fetch('https://protected-inlet-61515.herokuapp.com/service')
             .then(res => res.json())
             .then(data => setService(data))
     }, [])

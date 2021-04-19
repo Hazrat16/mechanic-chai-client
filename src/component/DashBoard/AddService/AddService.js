@@ -16,7 +16,7 @@ const AddService = () => {
             description: data.description,
             imageURL: imageURL,
         };
-        const url = `http://localhost:5000/addService`;
+        const url = `https://protected-inlet-61515.herokuapp.com/addService`;
 
         fetch(url, {
             method: 'POST',
