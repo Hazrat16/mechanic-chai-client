@@ -14,6 +14,7 @@ import HireDataTable from './component/DashBoard/HireDataTable/HireDataTable';
 import AddService from './component/DashBoard/AddService/AddService';
 import PrivateRoute from './component/Login/PrivateRoute/PrivateRoute';
 import Payment from './component/DashBoard/Payment/Payment';
+import AddAdmin from './component/DashBoard/AddAdmin/AddAdmin';
 
 export const UserContext = createContext();
 
@@ -40,6 +41,9 @@ function App() {
           </Route>
           <Route path="/mechanic/clients">
             <AllClient/>
+          </Route>
+          <Route path="/mechanic/addAdmin">
+            <AddAdmin/>
           </Route>
           <Route path="/payment">
             <Payment/>

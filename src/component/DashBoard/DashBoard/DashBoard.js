@@ -19,7 +19,8 @@ const DashBoard = () => {
     // const {id} = useParams()
     // console.log(id);
     let history = useHistory();
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext)
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    console.log(loggedInUser);
     const { register, handleSubmit, watch, errors } = useForm();
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [bookings, setBookings] = useState(null);

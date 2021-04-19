@@ -35,8 +35,8 @@ const Sidebar = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link to="/addMechanic" className="text-white">
-                        <FontAwesomeIcon icon={faUser} /> <span>Add mechanic</span>
+                    <Link to="/mechanic/addAdmin" className="text-white">
+                        <FontAwesomeIcon icon={faUser} /> <span>Add Admin</span>
                     </Link>
                 </li>
                 <li>

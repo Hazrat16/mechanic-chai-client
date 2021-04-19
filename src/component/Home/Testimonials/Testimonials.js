@@ -1,30 +1,17 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import Testimonial from '../Testimonial/Testimonial';
 import './Testimonials.css'
 
-
-const testimonialData = [
-    {
-        quote : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat accusantium consequuntur, qui nisi deserunt blanditiis mollitia, illo! ',
-        name : 'John Harry',
-        from : 'California',
-        img : 'https://www.vhv.rs/dpng/d/414-4146986_man-animation-png-businessman-clipart-transparent-background-png.png',
-    },
-    {
-        quote : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat accusantium consequuntur, qui nisi deserunt blanditiis mollitia, illo! ',
-        name : 'Ema Gomez',
-        from : 'California',
-        img : 'https://www.vhv.rs/dpng/d/414-4146986_man-animation-png-businessman-clipart-transparent-background-png.png',
-    },
-    {
-        quote : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat accusantium consequuntur, qui nisi deserunt blanditiis mollitia, illo! ',
-        name : 'Kia Farari',
-        from : 'California',
-        img : 'https://www.vhv.rs/dpng/d/414-4146986_man-animation-png-businessman-clipart-transparent-background-png.png',
-    }
-]
-
 const Testimonials = () => {
+    const [testimonialData,setTestimonialData] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/review')
+            .then(res => res.json())
+            .then(data => setTestimonialData(data))
+    },[])
     return (
         <section className="testimonials my-5 py-5">
            <div className="container">
@@ -34,7 +21,7 @@ const Testimonials = () => {
                </div>
                <div className="card-deck mt-5">
                     {
-                        testimonialData.map(testimonial => <Testimonial testimonial={testimonial} key={testimonial.name}/>)
+                        testimonialData.map(testimonial => <Testimonial testimonial={testimonial} key={testimonial._id}/>)
                     }
                 </div>
            </div>
