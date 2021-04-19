@@ -1,0 +1,24 @@
+.make-appointment{
+    background-image: url('https://image.freepik.com/free-photo/electricians-hands-testing-current-electric-control-panel_34936-1296.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 420px;
+    background-position: center center;
+    background-color: black;
+}
+
+/* .make-appointment::before{
+    content:  "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgb(36, 41, 73);
+    opacity: .6;
+    top: 0;
+} */
+
+.make-appointment img{
+    height: 420px;
+}

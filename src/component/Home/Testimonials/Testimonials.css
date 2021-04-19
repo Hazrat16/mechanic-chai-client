@@ -1,0 +1,14 @@
+.testimonials .container{
+    background-image: url('https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/512x512/quotation_mark.png');
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: 150px;
+}
+.testimonials .card{
+    border-color: transparent;
+}
+
+.testimonials .card .card-footer{
+    background: transparent;
+    border: 0;
+}
