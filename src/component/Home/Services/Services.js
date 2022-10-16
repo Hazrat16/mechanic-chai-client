@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import ServiceDetail from '../ServiceDetail/ServiceDetail';
 import { useHistory } from 'react-router-dom';
+import ServiceDetail from '../ServiceDetail/ServiceDetail';
 
 
 const Services = () => {
@@ -8,7 +8,7 @@ const Services = () => {
     let history = useHistory();
 
     useEffect(() => {
-        fetch('https://protected-inlet-61515.herokuapp.com/service')
+        fetch('https://mechanic-server.vercel.app/service')
             .then(res => res.json())
             .then(data => setService(data))
     }, [])

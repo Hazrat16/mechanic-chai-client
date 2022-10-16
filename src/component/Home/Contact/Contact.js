@@ -1,5 +1,4 @@
-import React from 'react';
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { UserContext } from '../../../App';
 import './Contact.css';
@@ -13,7 +12,7 @@ const Contact = () => {
             user:loggedInUser.name,
             imageURL: loggedInUser.photoURL,
         };
-        const url = `https://protected-inlet-61515.herokuapp.com/review`;
+        const url = `https://mechanic-server.vercel.app/review`;
 
         fetch(url, {
             method: 'POST',

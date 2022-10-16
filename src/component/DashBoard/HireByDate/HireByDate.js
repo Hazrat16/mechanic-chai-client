@@ -4,7 +4,7 @@ import HireShortList from '../HireShortList/HireShortList';
 const HireByDate = () => {
     const [bookings, setBookings] = useState([])
     useEffect(() => {
-        fetch('https://protected-inlet-61515.herokuapp.com/bookings')
+        fetch('https://mechanic-server.vercel.app/bookings')
             .then(res => res.json())
             .then(data => setBookings(data))
     }, [])

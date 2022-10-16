@@ -1,6 +1,5 @@
 import axios from 'axios';
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Sidebar from '../Sidebar/Sidebar';
 
@@ -16,7 +15,7 @@ const AddService = () => {
             description: data.description,
             imageURL: imageURL,
         };
-        const url = `https://protected-inlet-61515.herokuapp.com/addService`;
+        const url = `https://mechanic-server.vercel.app/addService`;
 
         fetch(url, {
             method: 'POST',

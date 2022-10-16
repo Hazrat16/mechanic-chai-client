@@ -1,21 +1,19 @@
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
-import { useState, useEffect } from 'react';
-import Sidebar from '../Sidebar/Sidebar';
+import React, { useEffect, useState } from 'react';
 
 const HireDataTable = () => {
     const [bookings, setBookings] = useState([])
     useEffect(() => {
-        fetch('https://protected-inlet-61515.herokuapp.com/bookings')
+        fetch('https://mechanic-server.vercel.app/bookings')
             .then(res => res.json())
             .then(data => setBookings(data))
     }, [])
     return (
         <div className="container-fluid row">
-            <div className='col-md-2 pl-0'>
+            {/* <div className='col-md-2 pl-0'>
                 <Sidebar/>
-            </div>
+            </div> */}
             <div className="col-md-10">
                 <table className="table table-borderless">
                     <thead>

@@ -1,6 +1,6 @@
 import React from 'react';
-import Sidebar from '../Sidebar/Sidebar';
 import { useForm } from 'react-hook-form';
+import Sidebar from '../Sidebar/Sidebar';
 
 const AddAdmin = () => {
     const { register, handleSubmit, watch, errors } = useForm();
@@ -10,7 +10,7 @@ const AddAdmin = () => {
             name: data.name,
             email: data.email
         };
-        const url = `https://protected-inlet-61515.herokuapp.com/admin`;
+        const url = `https://mechanic-server.vercel.app/admin`;
 
         fetch(url, {
             method: 'POST',

@@ -1,14 +1,12 @@
-import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Testimonial from '../Testimonial/Testimonial';
-import './Testimonials.css'
+import './Testimonials.css';
 
 const Testimonials = () => {
     const [testimonialData,setTestimonialData] = useState([]);
 
     useEffect(() => {
-        fetch('https://protected-inlet-61515.herokuapp.com/review')
+        fetch('https://mechanic-server.vercel.app/review')
             .then(res => res.json())
             .then(data => setTestimonialData(data))
     },[])

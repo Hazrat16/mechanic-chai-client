@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import Calendar from 'react-calendar';
+import React, { useContext, useEffect, useState } from 'react';
 import 'react-calendar/dist/Calendar.css';
 import { useForm } from 'react-hook-form';
-import { useHistory, useParams } from 'react-router';
-import HireByDate from '../HireByDate/HireByDate';
-import Sidebar from './../Sidebar/Sidebar';
-import ProcessPayment from './../ProcessPayment/ProcessPayment';
+import { useHistory } from 'react-router';
 import { UserContext } from '../../../App';
-import { useContext } from 'react';
+import HireByDate from '../HireByDate/HireByDate';
+import ProcessPayment from './../ProcessPayment/ProcessPayment';
+import Sidebar from './../Sidebar/Sidebar';
 
 const containerStyle = {
     backgroundColor: '#F4FDFB',
@@ -31,13 +29,13 @@ const DashBoard = () => {
     const [bookData, setBookData] = useState(null);
 
     useEffect(() => {
-        fetch('https://protected-inlet-61515.herokuapp.com/bookings')
+        fetch('https://mechanic-server.vercel.app/bookings')
             .then(res => res.json())
             .then(data => setBookings(data))
     }, [])
 
     // useEffect(() => {
-    //     fetch(`https://protected-inlet-61515.herokuapp.com/service/${id}`, {
+    //     fetch(`https://mechanic-server.vercel.app/service/${id}`, {
     //         method: 'POST',
     //         headers: { 'Content-type': 'application/json' },
     //         body: JSON.stringify({ date: selectedDate })
@@ -65,11 +63,11 @@ const DashBoard = () => {
             paymentId
 
         };
-        // const url = `https://protected-inlet-61515.herokuapp.com/bookings`;
+        // const url = `https://mechanic-server.vercel.app/bookings`;
 
 
 
-        fetch('https://protected-inlet-61515.herokuapp.com/bookings', {
+        fetch('https://mechanic-server.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
